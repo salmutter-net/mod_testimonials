@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.0" client="site" method="upgrade">
+    <name>MOD Testimonials</name>
+    <author>DI Philipp Salmutter</author>
+    <version>1.0.0</version>
+    <description>Logo-Carousel mit Navigation – Zeigt Kundenlogos in einem horizontal scrollbaren Carousel.</description>
+    <files>
+        <filename module="mod_testimonials">mod_testimonials.php</filename>
+        <filename>mod_testimonials.xml</filename>
+        <filename>index.html</filename>
+        <folder>tmpl</folder>
+    </files>
+    <media folder="media" destination="mod_testimonials">
+        <folder>css</folder>
+    </media>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                    name="title"
+                    type="text"
+                    label="Titel"
+                    description="Überschrift über dem Logo-Carousel"
+                    default="Kunden, die bereits Zeit &amp; Nerven sparen"
+                />
+
+                <field
+                    name="logos"
+                    type="subform"
+                    label="Logos"
+                    description="Kundenlogos mit optionaler Verlinkung"
+                    multiple="true"
+                    min="1"
+                >
+                    <form>
+                        <field
+                            name="image"
+                            type="media"
+                            label="Logo"
+                            required="true"
+                        />
+                        <field
+                            name="alt"
+                            type="text"
+                            label="Alt-Text"
+                            description="Beschreibung für Accessibility"
+                        />
+                        <field
+                            name="link"
+                            type="url"
+                            label="Link"
+                            description="Optionaler Link zum Kunden"
+                        />
+                    </form>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
