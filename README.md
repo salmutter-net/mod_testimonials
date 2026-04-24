@@ -75,13 +75,13 @@ The module auto-detects and loads it. Example content:
 
 ```css
 /* Project-specific overrides */
-.mod-testimonals {
+.mod_testimonials {
     --mt-bg: #f8f9fa;
     --mt-text: #1a1a1a;
     --mt-gap: 2rem;
 }
 
-.mod-testimonals__title {
+.mod_testimonials__title {
     font-family: 'Your Brand Font', sans-serif;
     font-size: 2rem;
 }
@@ -170,7 +170,7 @@ When this function exists, the module delegates ALL CSS loading to the template 
 Base CSS defines these custom properties for easy customization:
 
 ```css
-.mod-testimonals {
+.mod_testimonials {
     --mt-bg: #f5f5f5;          /* Module background */
     --mt-text: #333;            /* Title text color */
     --mt-nav-bg: #fff;          /* Nav button background */

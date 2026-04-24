@@ -3,18 +3,18 @@
 /** @var string $title */
 /** @var array $logos */
 
-$modId = 'mod-testimonals-' . $module->id;
+$modId = 'mod_testimonials-' . $module->id;
 $scrollId = $modId . '-scroll';
 ?>
-<div id="<?php echo $modId; ?>" class="mod-testimonals">
+<div id="<?php echo $modId; ?>" class="mod_testimonials">
     <?php if ($title) : ?>
-        <h2 class="mod-testimonals__title"><?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?></h2>
+        <h2 class="mod_testimonials__title"><?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?></h2>
     <?php endif; ?>
 
-    <div class="mod-testimonals__wrapper">
+    <div class="mod_testimonials__wrapper">
         <button
             type="button"
-            class="mod-testimonals__nav mod-testimonals__nav--prev"
+            class="mod_testimonials__nav mod_testimonials__nav--prev"
             aria-label="Vorherige Logos"
             disabled
             onclick="document.getElementById('<?php echo $scrollId; ?>').scrollBy({left: -300, behavior: 'smooth'})">
@@ -23,24 +23,24 @@ $scrollId = $modId . '-scroll';
             </svg>
         </button>
 
-        <div id="<?php echo $scrollId; ?>" class="mod-testimonals__scroll">
-            <ul class="mod-testimonals__list">
+        <div id="<?php echo $scrollId; ?>" class="mod_testimonials__scroll">
+            <ul class="mod_testimonials__list">
                 <?php foreach ($logos as $logo) :
                     $image = $logo->image ?? '';
                     $alt = $logo->alt ?? '';
                     $link = $logo->link ?? '';
                     if (!$image) continue;
                 ?>
-                    <li class="mod-testimonals__item">
+                    <li class="mod_testimonials__item">
                         <?php if ($link) : ?>
                             <a href="<?php echo htmlspecialchars($link, ENT_QUOTES, 'UTF-8'); ?>"
-                               class="mod-testimonals__link"
+                               class="mod_testimonials__link"
                                target="_blank"
                                rel="noopener noreferrer">
                         <?php endif; ?>
                             <img src="<?php echo htmlspecialchars($image, ENT_QUOTES, 'UTF-8'); ?>"
                                  alt="<?php echo htmlspecialchars($alt, ENT_QUOTES, 'UTF-8'); ?>"
-                                 class="mod-testimonals__logo"
+                                 class="mod_testimonials__logo"
                                  loading="lazy">
                         <?php if ($link) : ?>
                             </a>
@@ -52,7 +52,7 @@ $scrollId = $modId . '-scroll';
 
         <button
             type="button"
-            class="mod-testimonals__nav mod-testimonals__nav--next"
+            class="mod_testimonials__nav mod_testimonials__nav--next"
             aria-label="Nächste Logos"
             disabled
             onclick="document.getElementById('<?php echo $scrollId; ?>').scrollBy({left: 300, behavior: 'smooth'})">
@@ -66,8 +66,8 @@ $scrollId = $modId . '-scroll';
 <script>
 (function() {
     const scrollEl = document.getElementById('<?php echo $scrollId; ?>');
-    const prevBtn = scrollEl.parentElement.querySelector('.mod-testimonals__nav--prev');
-    const nextBtn = scrollEl.parentElement.querySelector('.mod-testimonals__nav--next');
+    const prevBtn = scrollEl.parentElement.querySelector('.mod_testimonials__nav--prev');
+    const nextBtn = scrollEl.parentElement.querySelector('.mod_testimonials__nav--next');
     const wrapper = scrollEl.parentElement;
 
     function updateNav() {
@@ -79,7 +79,7 @@ $scrollId = $modId . '-scroll';
 
         // Hide entire nav if no overflow
         const hasOverflow = scrollEl.scrollWidth > scrollEl.clientWidth;
-        wrapper.classList.toggle('mod-testimonals__wrapper--scrollable', hasOverflow);
+        wrapper.classList.toggle('mod_testimonials__wrapper--scrollable', hasOverflow);
     }
 
     // Initial check

@@ -1,7 +1,7 @@
 // mod_testimonials - Standalone Logo Carousel
 // ===========================================
 
-.mod-testimonals {
+.mod_testimonials {
     --mt-bg: #f5f5f5;
     --mt-text: #333;
     --mt-nav-bg: #fff;
@@ -131,7 +131,7 @@
 
 // Responsive adjustments
 @media (max-width: 768px) {
-    .mod-testimonals {
+    .mod_testimonials {
         --mt-item-width: 150px;
         padding: 2rem 0.5rem;
 

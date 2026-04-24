@@ -2,7 +2,7 @@
 <extension type="module" version="1.0" client="site" method="upgrade">
     <name>MOD Testimonials</name>
     <author>DI Philipp Salmutter</author>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <description>Logo-Carousel mit Navigation – Zeigt Kundenlogos in einem horizontal scrollbaren Carousel.</description>
     <files>
         <filename module="mod_testimonials">mod_testimonials.php</filename>
