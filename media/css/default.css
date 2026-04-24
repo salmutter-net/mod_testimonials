@@ -27,7 +27,7 @@
 }
 .mod-testimonals__nav {
   flex-shrink: 0;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   width: 44px;
@@ -37,22 +37,29 @@
   background: var(--mt-nav-bg);
   color: var(--mt-text);
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
-.mod-testimonals__nav:hover {
+.mod-testimonals__nav:hover:not(:disabled) {
   background: var(--mt-nav-hover);
   transform: scale(1.05);
 }
-.mod-testimonals__nav:active {
+.mod-testimonals__nav:active:not(:disabled) {
   transform: scale(0.95);
 }
 .mod-testimonals__nav:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
+.mod-testimonals__nav:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
 .mod-testimonals__nav--prev {
   order: -1;
+}
+.mod-testimonals__wrapper--scrollable .mod-testimonals__nav {
+  display: flex;
 }
 .mod-testimonals__scroll {
   flex: 1;

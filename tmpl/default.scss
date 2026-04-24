@@ -32,7 +32,7 @@
 
     &__nav {
         flex-shrink: 0;
-        display: flex;
+        display: none; // Hidden by default, shown when scrollable
         align-items: center;
         justify-content: center;
         width: 44px;
@@ -42,15 +42,15 @@
         background: var(--mt-nav-bg);
         color: var(--mt-text);
         cursor: pointer;
-        transition: background 0.2s ease, transform 0.2s ease;
+        transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 
-        &:hover {
+        &:hover:not(:disabled) {
             background: var(--mt-nav-hover);
             transform: scale(1.05);
         }
 
-        &:active {
+        &:active:not(:disabled) {
             transform: scale(0.95);
         }
 
@@ -59,9 +59,19 @@
             outline-offset: 2px;
         }
 
+        &:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
         &--prev {
             order: -1;
         }
+    }
+
+    // Show nav buttons only when scrollable
+    &__wrapper--scrollable &__nav {
+        display: flex;
     }
 
     &__scroll {

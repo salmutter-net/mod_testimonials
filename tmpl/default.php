@@ -16,6 +16,7 @@ $scrollId = $modId . '-scroll';
             type="button"
             class="mod-testimonals__nav mod-testimonals__nav--prev"
             aria-label="Vorherige Logos"
+            disabled
             onclick="document.getElementById('<?php echo $scrollId; ?>').scrollBy({left: -300, behavior: 'smooth'})">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -53,6 +54,7 @@ $scrollId = $modId . '-scroll';
             type="button"
             class="mod-testimonals__nav mod-testimonals__nav--next"
             aria-label="Nächste Logos"
+            disabled
             onclick="document.getElementById('<?php echo $scrollId; ?>').scrollBy({left: 300, behavior: 'smooth'})">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -60,3 +62,33 @@ $scrollId = $modId . '-scroll';
         </button>
     </div>
 </div>
+
+<script>
+(function() {
+    const scrollEl = document.getElementById('<?php echo $scrollId; ?>');
+    const prevBtn = scrollEl.parentElement.querySelector('.mod-testimonals__nav--prev');
+    const nextBtn = scrollEl.parentElement.querySelector('.mod-testimonals__nav--next');
+    const wrapper = scrollEl.parentElement;
+
+    function updateNav() {
+        const canScrollLeft = scrollEl.scrollLeft > 0;
+        const canScrollRight = scrollEl.scrollLeft + scrollEl.clientWidth < scrollEl.scrollWidth - 1;
+
+        prevBtn.disabled = !canScrollLeft;
+        nextBtn.disabled = !canScrollRight;
+
+        // Hide entire nav if no overflow
+        const hasOverflow = scrollEl.scrollWidth > scrollEl.clientWidth;
+        wrapper.classList.toggle('mod-testimonals__wrapper--scrollable', hasOverflow);
+    }
+
+    // Initial check
+    updateNav();
+
+    // Update on scroll
+    scrollEl.addEventListener('scroll', updateNav, { passive: true });
+
+    // Update on resize
+    window.addEventListener('resize', updateNav, { passive: true });
+})();
+</script>
