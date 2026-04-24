@@ -1,4 +1,55 @@
-# mod_testimonials CSS Integration Guide
+# mod_testimonials
+
+Ein responsives Logo-Carousel mit horizontaler Navigation für Joomla. Zeigt Kundenlogos in einem scrollbaren Container mit vor/zurück Buttons – ideal für "Trusted by"-Sektionen auf Landingpages.
+
+## Features
+
+- **Logo-Carousel**: Horizontale Scroll-Ansicht mit Navigation
+- **Subform-Logos**: Mehrere Logos mit Bild, Alt-Text und optionalem Link pflegbar
+- **Responsive**: Optimiert für Desktop und Mobile
+- **Barrierefrei**: ARIA-Labels, Keyboard-Navigation, semantisches HTML
+- **CSS-Architektur**: Base + Local – funktioniert in allen Templates
+- **Selbstständig**: Keine Abhängigkeiten zum Template, keine externen Libraries
+
+## Requirements
+
+- Joomla 4.x oder 5.x
+- PHP 8.0+
+
+## Installation
+
+1. ZIP erstellen:
+   ```bash
+   cd modules/mod_testimonials
+   zip -r mod_testimonials.zip . -x "*.scss" -x "README.md"
+   ```
+
+2. In Joomla installieren:
+   **System → Install → Extensions → Upload Package File**
+
+3. Modul anlegen:
+   **Content → Site Modules → New → mod_testimonials**
+
+## Configuration
+
+| Feld | Beschreibung |
+|------|--------------|
+| **Titel** | Überschrift über dem Carousel (z.B. "Kunden, die bereits Zeit & Nerven sparen") |
+| **Logos** | Subform mit je Logo: Bild (Media), Alt-Text, optionaler Link |
+
+### Logo-Einträge
+
+- **Logo**: Bild aus Media-Bibliothek (empfohlen: SVG oder transparentes PNG)
+- **Alt-Text**: Beschreibung für Screenreader (wenn leer: "Link zur Website [URL]")
+- **Link**: Optional, öffnet in neuem Tab mit `rel="noopener"`
+
+## Template Integration
+
+Das Modul bringt **Base CSS** für Layout und Funktionalität mit. Für projektspezifisches Styling (Farben, Fonts, Abstände) kannst du **Local CSS** hinzufügen.
+
+---
+
+# CSS Integration Guide (für Template-Entwickler)
 
 This module uses a **Base + Local** CSS architecture that works across all Joomla projects.
 
@@ -155,3 +206,23 @@ templates/yourtemplate/
 - **Hybrid:** Method 2 (WebAsset) works in both old and new templates
 
 The module **only loads CSS when present on the page** (Joomla's module rendering lifecycle).
+
+---
+
+## Changelog
+
+### 1.0.1
+- Base + Local CSS-Architektur implementiert
+- Automatische Erkennung von Template-Helpers
+- Rückwärtskompatibel mit älteren Projekten
+
+### 1.0.0
+- Initiale Version
+- Logo-Carousel mit Navigation
+- Subform für Logo-Pflege
+
+---
+
+## License
+
+GNU General Public License version 2 or later; see LICENSE.txt
